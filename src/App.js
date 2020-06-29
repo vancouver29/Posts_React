@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Status from "./components/Status";
+import StatusList from "./components/StatusList";
 
 function App() {
     return ( <
@@ -9,15 +9,7 @@ function App() {
         <
         header className = "App-header" >
         <
-        Status mytext = "Wow, i had the most delicious today." / >
-        <
-        Status mytext = "There was no traffic today!" / >
-        <
-        Status mytext = "Finally finished that big project" / >
-        <
-        Status mytext = "Happy to be learning ReactJS" / >
-        <
-        Status mytext = "Hello World" / >
+        StatusList / >
         <
         /header> <
         /div>
