@@ -6,7 +6,7 @@ export default class StatusAll extends Component {
         super(props);
 
         this.state = {
-            newStatusText: "new Text",
+            newStatusText: "",
             statuses: [
                 "Wow, i had the most delicious today.",
                 "There was no traffic today!",
@@ -17,10 +17,22 @@ export default class StatusAll extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(ev) {
         this.setState({ newStatusText: ev.target.value });
+    }
+
+    handleSubmit(ev) {
+        //prevent the form from taking us to a new page ( or refreshing)
+        //We will stay on the page
+        ev.preventDefault();
+        let newStatuses = [this.state.newStatusText, ...this.state.statuses];
+        this.setState({
+            newStatusText: "",
+            statuses: newStatuses,
+        });
     }
 
     render() {
@@ -30,7 +42,7 @@ export default class StatusAll extends Component {
             div className = "status" >
             <
             h1 > Enter New Status < /h1> <
-            form >
+            form onSubmit = { this.handleSubmit } >
             <
             input type = "text"
             value = { this.state.newStatusText }
